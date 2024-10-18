@@ -1,0 +1,16 @@
+@@ -1,12 +1,6 @@
+FROM debian:latest
+FROM alpine:latest
+LABEL MAINTAINER="https://github.com/htr-tech/zphisher"
+
+WORKDIR /xphisher/
+ADD . /xphisher
+
+RUN apt update && \
+    apt full-upgrade -y && \
+    apt install -y curl unzip wget && \
+    apt install --no-install-recommends -y php && \
+    apt clean
+CMD ["./xphisher.sh"]
+RUN apk add --no-cache bash ncurses curl unzip wget php 
+CMD "./xphisher.sh"
